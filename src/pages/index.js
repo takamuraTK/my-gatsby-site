@@ -1,12 +1,37 @@
 import * as React from "react";
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 
-const IndexPage = () => {
+const PostItem = (props) => {
+  const { title, link, pubDate } = props.post;
   return (
-    <div>
-      <p>Hello Gatsby</p>
-      <Link to="/about">lint to about</Link>
-    </div>
+    <li>
+      <a href={link}>
+        <small>{pubDate}</small> {title}
+      </a>
+    </li>
   );
 };
+
+const IndexPage = (props) => {
+  return (
+    <ul>
+      {props.data.allFeedQiita.nodes.map((post) => {
+        return <PostItem post={post} key={post.link} />;
+      })}
+    </ul>
+  );
+};
+
+export const query = graphql`
+  {
+    allFeedQiita {
+      nodes {
+        title
+        pubDate
+        link
+      }
+    }
+  }
+`;
+
 export default IndexPage;
