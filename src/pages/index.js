@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 
 const PostItem = (props) => {
   const { title, link, pubDate } = props.post;

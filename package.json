@@ -18,6 +18,7 @@
     "gatsby": "^3.1.2",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-source-rss-feed": "^1.2.2",
+    "gatsby-transformer-yaml": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
